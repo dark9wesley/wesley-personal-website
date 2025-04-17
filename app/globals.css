@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 246 83.3% 59.4%;
+    --accent-foreground: 246 83.3% 96%;
+
+    --subtle: 210 40% 98%;
+    --info: 217.2 91.2% 59.8%;
+    --success: 142.1 76.2% 36.3%;
+    --warning: 38 92% 50%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 246 83.3% 59.4%;
+    --accent-foreground: 246 83.3% 96%;
+
+    --subtle: 217 33% 17%;
+    --info: 217.2 91.2% 59.8%;
+    --success: 142.1 70.6% 45.3%;
+    --warning: 47 96% 53%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  a {
+    @apply transition-colors duration-200;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors;
+  }
+
+  .nav-link-active {
+    @apply text-foreground;
+  }
+
+  .icon-btn {
+    @apply inline-flex items-center justify-center rounded-md w-9 h-9 text-muted-foreground hover:text-foreground transition-colors;
+  }
+
+  .project-card {
+    @apply border rounded-lg p-4 hover:border-foreground/20 transition-colors flex flex-col backdrop-blur-sm bg-background/50;
+  }
+
+  .project-icon {
+    @apply text-muted-foreground mb-2;
+  }
+
+  .article-item {
+    @apply flex justify-between py-3 hover:bg-muted/30 -mx-2 px-2 rounded transition-colors;
+  }
+
+  .article-date {
+    @apply text-sm text-muted-foreground whitespace-nowrap ml-4;
+  }
+
+  .article-title {
+    @apply hover:text-foreground/80;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-4 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-center text-muted-foreground mb-8 max-w-lg mx-auto;
+  }
+
+  .project-section-title {
+    @apply text-4xl font-bold text-center opacity-20 mb-8;
+  }
+
+  .project-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12;
+  }
+
+  .tag {
+    @apply inline-flex items-center text-xs px-2 py-0.5 bg-secondary rounded-full mr-1;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent/70;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-md hover:shadow-accent/5 hover:-translate-y-1;
+  }
+}
