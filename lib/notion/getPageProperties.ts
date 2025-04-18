@@ -189,5 +189,5 @@ function generateCustomizeSlug(postProperties: Record<string, any>, NOTION_CONFI
   if (checkStartWithHttp(postProperties.slug)) {
     return postProperties.slug
   }
-  return `article/${postProperties.slug ?? postProperties.id}`
+  return `articles/${postProperties.slug ?? postProperties.id}`
 }

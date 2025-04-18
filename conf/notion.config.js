@@ -3,7 +3,7 @@
  * 如果需要在Notion中添加自定义字段，可以修改此文件
  */
 module.exports = {
-  POST_URL_PREFIX: 'article',
+  POST_URL_PREFIX: 'articles',
   NOTION_HOST: 'https://www.notion.so',
   // 自定义配置notion数据库字段名
   NOTION_PROPERTY_NAME: {
