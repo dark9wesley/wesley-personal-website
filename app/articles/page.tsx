@@ -2,6 +2,7 @@ import Link from "next/link"
 import PageTransition from "@/components/page-transition"
 import FadeIn from "@/components/fade-in"
 import StaggeredFadeIn from "@/components/staggered-fade-in"
+import { getNotionPageData } from "@/lib/notion"
 
 // 示例文稿数据
 const articles = [
@@ -72,10 +73,10 @@ const articles = [
 ]
 
 // 按年份分组文章
-const groupByYear = (articles: typeof articles) => {
+const groupByYear = (articles: any) => {
   const grouped: Record<string, typeof articles> = {}
 
-  articles.forEach((article) => {
+  articles.forEach((article: any) => {
     if (!grouped[article.year]) {
       grouped[article.year] = []
     }
@@ -85,7 +86,8 @@ const groupByYear = (articles: typeof articles) => {
   return grouped
 }
 
-export default function ArticlesPage() {
+export default async function ArticlesPage() {
+  const pageData = await getNotionPageData();
   const groupedArticles = groupByYear(articles)
   const years = Object.keys(groupedArticles).sort((a, b) => Number.parseInt(b) - Number.parseInt(a))
 
@@ -115,7 +117,7 @@ export default function ArticlesPage() {
             </FadeIn>
             <div className="space-y-0">
               <StaggeredFadeIn initialDelay={0.1 * (yearIndex + 1)} staggerDelay={0.05} direction="up">
-                {groupedArticles[year].map((article) => (
+                {groupedArticles[year].map((article: any) => (
                   <article key={article.id} className="article-item">
                     <Link href={article.link} className="article-title">
                       {article.title}

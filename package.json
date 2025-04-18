@@ -47,6 +47,7 @@
     "embla-carousel-react": "8.5.1",
     "framer-motion": "latest",
     "input-otp": "1.4.1",
+    "js-md5": "^0.8.3",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.454.0",
     "next": "15.2.4",
@@ -54,11 +55,11 @@
     "notion-client": "^6.16.0",
     "notion-types": "^6.16.0",
     "notion-utils": "^6.16.0",
-    "react-notion-x": "^6.16.0",
     "react": "^19",
     "react-day-picker": "8.10.1",
     "react-dom": "^19",
     "react-hook-form": "^7.54.1",
+    "react-notion-x": "^6.16.0",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
     "sonner": "^1.7.1",
@@ -68,6 +69,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@types/js-md5": "^0.7.2",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22",
     "@types/react": "^19",
