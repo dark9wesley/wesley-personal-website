@@ -7,8 +7,8 @@ import { getNotionPageData } from "@/lib/notion"
 import { idToUuid } from "notion-utils"
 
 import { processPostData } from "@/lib/utils/post"
-import NotionPage from "@/components/notion-page"
 import { ExtendedRecordMap } from "notion-types"
+import NotionRenderer from "@/components/notion-renderer"
 
 // 定义文章类型
 interface Article {
@@ -120,7 +120,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         ) : (
           <FadeIn>
             <div className="prose prose-neutral dark:prose-invert max-w-none">
-              <NotionPage 
+              <NotionRenderer
                 recordMap={article.blockMap}
               />
             </div>

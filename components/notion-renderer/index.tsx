@@ -1,12 +1,11 @@
-"use client"
+'use client'
 
-import { NotionRenderer } from "react-notion-x"
-import type { ComponentProps } from "react"
+import { NotionRenderer as NotionRendererBase } from "react-notion-x"
+import { type ComponentProps } from "react"
 import { mapImgUrl } from "@/lib/notion/mapImage"
 import dynamic from "next/dynamic"
 
 const mapPageUrl = (id: string) => {
-  // return 'https://www.notion.so/' + id.replace(/-/g, '')
   return '/' + id.replace(/-/g, '')
 }
 
@@ -34,10 +33,11 @@ const Modal = dynamic(
 )
 
 
-const NotionPage = (props: ComponentProps<typeof NotionRenderer>) => {
+const NotionPage = (props: ComponentProps<typeof NotionRendererBase>) => {
+  
   return (
     <div>
-      <NotionRenderer 
+      <NotionRendererBase 
         mapPageUrl={mapPageUrl}
         mapImageUrl={mapImgUrl}
         components={{
