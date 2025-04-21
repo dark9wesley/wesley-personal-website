@@ -1,3 +1,5 @@
+import { isArray } from "lodash-es"
+
 export function convertStringToJSON(str: string) {
   if (!str) {
     return {}
@@ -37,3 +39,57 @@ export function convertUrlStartWithOneSlash(str: string) {
   return str
 }
 
+/**
+ * 递归获取层层嵌套的数组
+ * @param {*} textArray
+ * @returns
+ */
+function getTextContent(textArray: string[] | string) {
+  if (typeof textArray === 'object' && isArray(textArray)) {
+    let result = ''
+    for (const textObj of textArray) {
+      result = result + getTextContent(textObj)
+    }
+    return result
+  } else if (typeof textArray === 'string') {
+    return textArray
+  }
+}
+
+/**
+ * 将对象的指定字段拼接到字符串
+ * @param sourceTextArray
+ * @param targetObj
+ * @param key
+ * @returns {*}
+ */
+export function appendText(sourceTextArray: string[], targetObj: Record<string, any>, key: string) {
+  if (!targetObj) {
+    return sourceTextArray
+  }
+  const textArray = targetObj[key]
+  const text = textArray ? getTextContent(textArray) : ''
+  if (text && text !== 'Untitled') {
+    return sourceTextArray.concat(text)
+  }
+  return sourceTextArray
+}
+
+
+// 用word方式计算正文字数
+export function fnGetCpmisWords(str: string) {
+  if (!str) {
+    return 0
+  }
+  let sLen = 0
+  try {
+    // eslint-disable-next-line no-irregular-whitespace
+    str = str.replace(/(\r\n+|\s+|　+)/g, '龘')
+    // eslint-disable-next-line no-control-regex
+    str = str.replace(/[\x00-\xff]/g, 'm')
+    str = str.replace(/m+/g, '*')
+    str = str.replace(/龘+/g, '')
+    sLen = str.length
+  } catch (e) {}
+  return sLen
+}

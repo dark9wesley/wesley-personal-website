@@ -31,3 +31,8 @@ export const fetchInBatches = async (ids: string[], batchSize = 100) => {
   }
   return fetchedBlocks
 }
+
+export async function getPage(id: string) {
+  const pageData = await notionAPI.getPage(id)
+  return pageData
+}

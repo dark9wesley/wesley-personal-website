@@ -57,7 +57,7 @@ export default async function ArticlesPage() {
               <StaggeredFadeIn initialDelay={0.1 * (yearIndex + 1)} staggerDelay={0.05} direction="up">
                 {groupedArticles[year].map((article) => (
                   <article key={article.id} className="article-item">
-                    <Link href={article.href || '#'} className="article-title">
+                    <Link href={`/articles/${article.slug}`} className="article-title">
                       {article.title}
                     </Link>
                     <div className="article-date">

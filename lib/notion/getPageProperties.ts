@@ -150,7 +150,7 @@ export function adjustPageProperties(properties: Record<string, any>, NOTION_CON
   // 1.按照用户配置的URL_PREFIX 转换一下slug
   // 2.为文章添加一个href字段，存储最终调整的路径
   if (properties.type === 'Post') {
-    properties.slug = generateCustomizeSlug(properties, NOTION_CONFIG)
+    properties.slug = properties.slug ?? properties.id
     properties.href = properties.slug ?? properties.id
   } else if (properties.type === 'Page') {
     properties.href = properties.slug ?? properties.id
@@ -175,19 +175,4 @@ export function adjustPageProperties(properties: Record<string, any>, NOTION_CON
   properties.password = properties.password
     ? md5(properties.slug + properties.password)
     : ''
-}
-
-/**
- * 获取自定义URL
- * 可以根据变量生成URL
- * 支持：%category%/%year%/%month%/%day%/%slug%
- * @param {*} postProperties
- * @returns
- */
-function generateCustomizeSlug(postProperties: Record<string, any>, NOTION_CONFIG: Record<string, any>) {
-  // 外链不处理
-  if (checkStartWithHttp(postProperties.slug)) {
-    return postProperties.slug
-  }
-  return `articles/${postProperties.slug ?? postProperties.id}`
 }
