@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../styles/notion.css";
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -35,6 +37,8 @@
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+
+    --highlight: 246 83.3% 59.4%;
   }
 
   .dark {
@@ -67,6 +71,8 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.9%;
+
+    --highlight: 246 83.3% 59.4%;
   }
 }
 

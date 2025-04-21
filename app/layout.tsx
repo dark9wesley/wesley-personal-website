@@ -2,12 +2,12 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import '@/styles/notion.css' //  重写部分notion样式
-import 'react-notion-x/src/styles.css' // 原版的react-notion-x
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import ArtisticBackground from "@/components/artistic-background"
+
+import 'react-notion-x/src/styles.css'
 
 const inter = Inter({
   subsets: ["latin"],
