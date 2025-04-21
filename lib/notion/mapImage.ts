@@ -12,10 +12,10 @@ import { Block } from 'notion-types'
  */
 const mapImgUrl = (img: string, block: Block, type = 'block', needCompress = true) => {
   if (!img) {
-    return null
+    return ''
   }
 
-  let ret: string | null = null
+  let ret: string = ''
   // 相对目录，则视为notion的自带图片
   if (img.startsWith('/')) {
     ret = BLOG.NOTION_HOST + img
