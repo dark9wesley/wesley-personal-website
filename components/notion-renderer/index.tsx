@@ -32,6 +32,10 @@ const Modal = dynamic(
   { ssr: false }
 )
 
+// 美化代码 from: https://github.com/txs
+const PrismMac = dynamic(() => import('./PrismMac'), {
+  ssr: false
+})
 
 const NotionPage = (props: ComponentProps<typeof NotionRendererBase>) => {
   
@@ -50,6 +54,7 @@ const NotionPage = (props: ComponentProps<typeof NotionRendererBase>) => {
         }}
         {...props}
       />
+      <PrismMac />
     </div>
   )
 }
