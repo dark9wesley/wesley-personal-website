@@ -168,10 +168,8 @@ export default function ArtisticBackground() {
     }
 
     handleResize()
-    window.addEventListener("resize", handleResize)
 
     return () => {
-      window.removeEventListener("resize", handleResize)
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current)
       }
