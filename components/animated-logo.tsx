@@ -30,7 +30,7 @@ export default function AnimatedLogo() {
     if (animationState === "visible") {
       const timer = setTimeout(() => {
         setAnimationState("disappearing")
-      }, 3000) // 等待3秒
+      }, 5000) // 等待3秒
       return () => clearTimeout(timer)
     }
 
@@ -38,7 +38,7 @@ export default function AnimatedLogo() {
     if (animationState === "disappearing") {
       const timer = setTimeout(() => {
         setAnimationState("hidden")
-      }, 1000) // 消失动画大约需要1秒
+      }, 500) // 消失动画大约需要1秒
       return () => clearTimeout(timer)
     }
 
