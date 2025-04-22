@@ -24,6 +24,9 @@ const formatDate = (dateString: string) => {
   return dayjs(dateString).format('MMM D')
 }
 
+// 设置页面每小时重新验证一次
+export const revalidate = 1800 // 3600秒 = 1小时
+
 export default async function ArticlesPage() {
   const pageData = await getNotionPageData();
   const articles = pageData?.allPages?.filter((item) => item.type === 'Post' && item.status === 'Published') || [];
