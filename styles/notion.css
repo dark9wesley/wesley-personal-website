@@ -552,10 +552,13 @@ summary > .notion-h {
   width: 100%;
   white-space: pre-wrap;
   word-break: break-word;
-  border-left: 3px solid currentcolor;
-  padding: 0.2em 0.9em;
+  border-left: 3px solid var(--notion-gray) !important;
+  padding: 0.5em 1em;
   margin: 6px 0;
-  font-size: 1.2em;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  color: var(--notion-gray) !important;
+  font-size: 0.9em !important;
 }
 
 .notion-hr {
@@ -1743,9 +1746,6 @@ svg + .notion-page-title-text {
   @apply w-auto;
   @apply px-0;
 }
-.notion-quote {
-  padding: 0.2em 0.9em;
-}
 
 .notion-collection {
   align-self: center;
@@ -1973,23 +1973,6 @@ svg + .notion-page-title-text {
 
 .notion-asset-wrapper-pdf > div {
   display: block !important;
-}
-
-/* https://github.com/kchen0x */
-.notion-quote {
-  display: block;
-  border-radius: 5px;
-  border-color: var(--notion-blue);
-  border-left-color: var(--notion-blue);
-  background-color: var(--notion-blue_background_co);
-  width: 100%;
-  white-space: pre-wrap;
-  word-break: break-word;
-  border-left: 10px solid;
-  padding: 0.2em 0.9em;
-  margin: 6px 0;
-  font-size: 1em;
-  /* color: var(--notion-gray); */
 }
 
 /* .notion-asset-wrapper-pdf > div {
