@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import { motion } from "framer-motion"
+import AnimatedCD from "@/components/animated-cd"
 
 export default function NotFound() {
   return (
@@ -28,22 +28,7 @@ export default function NotFound() {
         Nice to meet you tho!
       </motion.p>
 
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-        className="mt-8 font-mono text-sm"
-      >
-        &gt; cd{" "}
-        <Link href="/" className="text-foreground hover:underline">
-          ..
-        </Link>
-        <motion.span
-          animate={{ opacity: [1, 0, 1] }}
-          transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1 }}
-          className="inline-block w-2 h-5 bg-foreground ml-1"
-        ></motion.span>
-      </motion.div>
+      <AnimatedCD />
     </motion.div>
   )
 }

@@ -8,10 +8,9 @@ import { Github, Twitter, Rss, Camera } from "lucide-react"
 import AnimatedLogo from "./animated-logo"
 import { motion } from "framer-motion"
 
-// 简化导航项，只保留 Blog 和 Projects
 const navItems = [
-  { name: "Blog", href: "/articles" },
-  { name: "Projects", href: "/projects" },
+  { name: "文稿", href: "/articles" },
+  { name: "项目", href: "/projects" },
 ]
 
 export default function Navbar() {
@@ -56,13 +55,12 @@ export default function Navbar() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="icon-btn">
+          <a href="https://github.com/dark9wesley" target="_blank" rel="noopener noreferrer" className="icon-btn">
             <Github size={18} />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="icon-btn">
+          <a href="https://x.com/dark9wesley" target="_blank" rel="noopener noreferrer" className="icon-btn">
             <Twitter size={18} />
           </a>
-          {/* 添加照片图标 */}
           <Link href="/photos" className="icon-btn">
             <Camera size={18} />
           </Link>

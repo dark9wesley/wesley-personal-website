@@ -9,6 +9,7 @@ import { idToUuid } from "notion-utils"
 import { processPostData } from "@/lib/utils/post"
 import { ExtendedRecordMap } from "notion-types"
 import NotionRenderer from "@/components/notion-renderer"
+import AnimatedCD from "@/components/animated-cd"
 
 // 定义文章类型
 interface Article {
@@ -83,13 +84,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <article className="max-w-3xl mx-auto">
         <FadeIn>
           <div className="mb-8">
-            <Link
-              href="/articles"
-              className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-6"
-            >
-              <ArrowLeft size={16} className="mr-1" />
-              Back to articles
-            </Link>
             <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
             <div className="flex items-center text-sm text-muted-foreground">
               <span className="flex items-center">
@@ -127,6 +121,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </FadeIn>
         )}
       </article>
+      <AnimatedCD href="/articles" />
     </PageTransition>
   );
 }

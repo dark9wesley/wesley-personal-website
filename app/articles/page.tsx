@@ -21,7 +21,7 @@ const groupByYear = (articles: Record<string, any>[]) => {
 }
 
 const formatDate = (dateString: string) => {
-  return dayjs(dateString).format('MMM D')
+  return dayjs(dateString).format('MM-DD')
 }
 
 // 设置页面每小时重新验证一次
@@ -35,19 +35,11 @@ export default async function ArticlesPage() {
 
   return (
     <PageTransition>
-      <div className="space-y-12">
+      <div className="space-y-16">
         <FadeIn>
           <div className="text-center space-y-4">
-            <div className="text-sm text-muted-foreground uppercase tracking-wider">Wesley Peng</div>
-            <h1 className="section-title">Blog</h1>
-            <div className="flex justify-center space-x-4 text-muted-foreground">
-              <Link href="/articles" className="hover:text-foreground">
-                Blog
-              </Link>
-              <Link href="/projects" className="hover:text-foreground">
-                Projects
-              </Link>
-            </div>
+            <h1 className="section-title">文稿</h1>
+            <p className="section-subtitle">「字间生木，行处见光」​</p>
           </div>
         </FadeIn>
 
