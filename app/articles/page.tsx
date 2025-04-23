@@ -39,7 +39,7 @@ export default async function ArticlesPage() {
         <FadeIn>
           <div className="text-center space-y-4">
             <h1 className="section-title">文稿</h1>
-            <p className="section-subtitle">「字间生木，行处见光」​</p>
+            <p className="section-subtitle italic">「字间生木，行处见光」​</p>
           </div>
         </FadeIn>
 
