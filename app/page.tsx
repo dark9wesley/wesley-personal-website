@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Code, Server, Layout, Github, Twitter } from "lucide-react"
+import { Github, Twitter } from "lucide-react"
 import FadeIn from "@/components/fade-in"
 import PageTransition from "@/components/page-transition"
 
@@ -10,95 +10,41 @@ export default function Home() {
         <FadeIn>
           <section className="space-y-4">
             <h1 className="text-4xl font-bold text-center">Wesley Peng</h1>
-            <p className="text-center text-muted-foreground">
-              Hey! I'm Wesley Peng, a fanatical full-stack engineer and open source enthusiast.
-            </p>
-          </section>
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
-          <section className="space-y-4">
-            <div className="space-y-2">
-              <p className="flex items-center gap-2">
-                <span>Working at</span>
-                <a href="#" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground">
-                  <Code size={16} className="inline" />
-                  <span>Company</span>
-                </a>
-              </p>
-
-              <p className="flex items-center gap-2">
-                <span>Creator of</span>
-                <a href="#" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground">
-                  <Server size={16} className="inline" />
-                  <span>Project A</span>
-                </a>
-                <a href="#" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground">
-                  <Layout size={16} className="inline" />
-                  <span>Project B</span>
-                </a>
-              </p>
-
-              <p className="flex items-center gap-2">
-                <span>Core team of</span>
-                <a href="#" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground">
-                  <Code size={16} className="inline" />
-                  <span>Framework X</span>
-                </a>
-              </p>
-
-              <p className="flex items-center gap-2">
-                <span>Maintaining</span>
-                <a href="#" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground">
-                  <Server size={16} className="inline" />
-                  <span>Library Y</span>
-                </a>
-              </p>
-            </div>
+            <p className="text-center text-muted-foreground">全栈工程师 | 独立开发者</p>
           </section>
         </FadeIn>
 
         <FadeIn delay={0.3}>
           <section className="space-y-4">
             <p>
-              Dreaming up cool ideas and making them come true is where my passion lies. I am enthusiastic about
-              building tools that help myself and others to be more productive and enjoy the process of crafting. You
-              can find my{" "}
+              我正在专注于构建自己的产品，将创意转化为现实是我的热情所在。我热衷于开发能够提高自己和他人工作效率的工具，享受创造的过程。你可以在
               <Link href="/projects" className="text-foreground underline underline-offset-4">
-                full projects list here
+                这里查看我的项目列表
               </Link>
-              .
+              。
             </p>
 
             <p>
-              I write{" "}
+              我会在
               <Link href="/articles" className="text-foreground underline underline-offset-4">
-                blog posts
-              </Link>{" "}
-              about open source, coding, etc. Occasionally, I do live coding streams on{" "}
-              <a href="#" className="text-foreground underline underline-offset-4">
-                YouTube
-              </a>{" "}
-              and{" "}
-              <a href="#" className="text-foreground underline underline-offset-4">
-                Bilibili
-              </a>
-              .
+                博客
+              </Link>
+              上分享关于开源、编程和产品开发的心得。
             </p>
 
             <p>
-              Outside of programming, I enjoy doing photography and traveling. I post{" "}
+              除了编程，我还喜欢摄影和旅行。我会在
               <Link href="/photos" className="text-foreground underline underline-offset-4">
-                photos on this page
+                这个页面
               </Link>
-              . I also love anime, movies and dramas. I am trying to hit my media consumption.
+              分享一些照片。我也喜欢动漫、电影和剧集。
             </p>
           </section>
         </FadeIn>
 
         <FadeIn delay={0.4}>
           <section className="space-y-4">
-            <h2 className="text-xl font-medium">Find me on</h2>
+            <h2 className="text-xl font-medium">在这些地方找到我</h2>
             <div className="flex flex-wrap gap-3">
               <a href="#" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground">
                 <Github size={16} className="inline" />
@@ -112,9 +58,6 @@ export default function Home() {
                 <span>Discord Server</span>
               </a>
               <a href="#" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground">
-                <span>YouTube</span>
-              </a>
-              <a href="#" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground">
                 <span>Instagram</span>
               </a>
             </div>
@@ -123,7 +66,7 @@ export default function Home() {
 
         <FadeIn delay={0.5}>
           <section className="space-y-4">
-            <p>Or mail me at hi@wesleypeng.me</p>
+            <p>或者发邮件联系我：hi@wesleypeng.me</p>
           </section>
         </FadeIn>
       </div>

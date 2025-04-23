@@ -16,8 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Wesley Peng",
-  description: "Wesley Peng的个人网站 - 全栈工程师、开源爱好者",
-    generator: 'v0.dev'
+  description: "Wesley Peng的个人网站 - 全栈工程师、独立开发",
 }
 
 export default function RootLayout({
@@ -40,6 +39,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-import './globals.css'
