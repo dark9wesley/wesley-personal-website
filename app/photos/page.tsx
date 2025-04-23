@@ -120,8 +120,8 @@ export default function PhotosPage() {
       <div className="space-y-8">
         <FadeIn>
           <div className="text-center space-y-4">
-            <h1 className="section-title">Photos</h1>
-            <p className="section-subtitle">A collection of photos I've taken during my travels and daily life.</p>
+            <h1 className="section-title">拾光集</h1>
+            <p className="section-subtitle italic">「快门声里的晨昏」</p>
           </div>
         </FadeIn>
 
