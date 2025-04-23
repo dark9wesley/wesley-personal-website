@@ -16,7 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Wesley Peng",
-  description: "Wesley Peng的个人网站 - 全栈工程师、独立开发",
+  description: "Wesley Peng的个人网站 - 全栈工程师 | 独立开发",
 }
 
 export default function RootLayout({
