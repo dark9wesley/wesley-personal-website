@@ -6,9 +6,9 @@ import { Mail } from "lucide-react"
 
 export default function Home() {
   const titles = [
-    "你好，我是 Wesley Peng，热爱探索的全栈工程师。", 
-    "你好，我是 Wesley Peng，异想天开的独立开发者。", 
-    "你好，我是 Wesley Peng，两只猫的铲屎官。", 
+    "热爱探索的全栈工程师。", 
+    "异想天开的独立开发者。", 
+    "两只猫的铲屎官。", 
   ]
 
   return (
@@ -26,7 +26,7 @@ export default function Home() {
           </section>
         </FadeIn>
 
-        <FadeIn delay={0.5}>
+        <FadeIn delay={0.4}>
           <section className="space-y-4">
             <p>
               我正在专注于构建自己的产品，将创意转化为现实是我的热情所在。我热衷于开发能够提高自己和他人工作效率的工具，享受创造的过程。你可以在
@@ -54,9 +54,9 @@ export default function Home() {
           </section>
         </FadeIn>
 
-        <FadeIn delay={0.8}>
+        <FadeIn delay={0.6}>
           <section className="space-y-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <span>如果对我感兴趣的话，可以联系</span>
               <AnimatedLink href="mailto:pengyw97@gmail.com" className="text-foreground">
                 <span className="underline underline-offset-4 inline-flex items-center gap-1"><Mail size={16} />pengyw97@gmail.com</span>

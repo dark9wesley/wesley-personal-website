@@ -1,5 +1,5 @@
 import {
-  CircleX,
+  X,
 } from "lucide-react";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import Image from "next/image";
@@ -82,9 +82,9 @@ export default function SharedModal({
             <div className="absolute top-0 left-0 flex items-center gap-2 p-3 text-white">
             <button
               onClick={() => closeModal()}
-              className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
+              className="rounded-full bg-black/50 p-1 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
             >
-              <CircleX className="h-5 w-5" />
+              <X className="h-5 w-5" />
             </button>
           </div>
           )}
