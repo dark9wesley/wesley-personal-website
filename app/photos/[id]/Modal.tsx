@@ -10,14 +10,12 @@ interface SharedModalProps {
   index: number;
   currentPhoto?: Photo;
   closeModal: () => void;
-  direction?: number;
 }
 
 export default function SharedModal({
   index,
   closeModal,
   currentPhoto,
-  direction,
 }: SharedModalProps) {
   const [loaded, setLoaded] = useState(false);
   let currentImage = currentPhoto;
@@ -30,48 +28,42 @@ export default function SharedModal({
       }}
     >
       <div
-        className="relative z-50 flex aspect-[3/2] w-full max-w-7xl items-center wide:h-full xl:taller-than-854:h-auto"
+        className="relative z-50 flex w-full h-full max-w-7xl items-center "
       >
-        <div className="w-full overflow-hidden">
-          <div className="relative flex aspect-[3/2] items-center justify-center">
-            <AnimatePresence initial={false} custom={direction}>
-              <motion.div
-                key={index}
-                custom={direction}
-                variants={{
-                  enter: (direction: number) => {
-                    return {
-                      x: direction > 0 ? 1000 : -1000,
-                      opacity: 0,
-                    };
-                  },
-                  center: {
-                    x: 0,
-                    opacity: 1,
-                  },
-                  exit: (direction: number) => {
-                    return {
-                      x: direction < 0 ? 1000 : -1000,
-                      opacity: 0,
-                    };
-                  },
-                }}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="absolute"
-              >
-                <Image
-                  src={currentImage?.pageCover ?? ''}
-                  width={1920}
-                  height={1280}
-                  priority
-                  alt={currentImage?.title ?? ''}
-                  onLoad={() => setLoaded(true)}
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
+        <div className="w-full h-full">
+          <AnimatePresence initial={false} custom={5}>
+            <motion.div
+              key={index}
+              custom={5}
+              variants={{
+                enter: {
+                  x: 1000,
+                  opacity: 0,
+                },
+                center: {
+                  x: 0,
+                  opacity: 1,
+                },
+                exit: {
+                  x: -1000,
+                  opacity: 0,
+                },
+              }}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="w-full h-full"
+            >
+              <Image
+                src={currentImage?.pageCover ?? ''}
+                fill
+                objectFit="contain"
+                priority
+                alt={currentImage?.title ?? ''}
+                onLoad={() => setLoaded(true)}
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Buttons + bottom nav bar */}

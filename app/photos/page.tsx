@@ -16,19 +16,19 @@ export default async function PhotosPage() {
         <p className="section-subtitle italic">「快门声里的晨昏」</p>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
         {photos.map((photo) => (
           <Link
             key={photo.id}
             href={`photos/${photo.id}`}
             shallow
-            className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
+            className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:shadow-highlight"
           >
             <div className="relative w-full pb-[100%] flex items-center justify-center">
               <div className="absolute top-0 left-0 w-full h-full">
                 <Image
                   alt={photo.title}
-                  className="transform rounded-lg transition will-change-auto"
+                  className="transform transition will-change-auto"
                   style={{ transform: "translate3d(0, 0, 0)" }}
                   src={photo.pageCoverThumbnail}
                   fill
