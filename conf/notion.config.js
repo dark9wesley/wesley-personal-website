@@ -8,9 +8,10 @@ module.exports = {
   // 自定义配置notion数据库字段名
   NOTION_PROPERTY_NAME: {
     password: 'password',
-    type:  'type', // 文章类型，
+    type: 'type', // 文章类型，
     type_post: 'Post', // 当type文章类型与此值相同时，为博文。
     type_page: 'Page', // 当type文章类型与此值相同时，为单页。
+    type_photo: 'Photo', // 当type文章类型与此值相同时，为照片。
     type_notice:
       'Notice', // 当type文章类型与此值相同时，为公告。
     type_menu: 'Menu', // 当type文章类型与此值相同时，为菜单。

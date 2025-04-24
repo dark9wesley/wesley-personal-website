@@ -179,6 +179,10 @@ export async function convertNotionToSiteData(recordMap: RecordMap) {
       postCount++
     }
 
+    if (post?.type === 'Photo') {
+      return post.status === 'Published'
+    }
+
     return (
       post &&
       post?.slug &&

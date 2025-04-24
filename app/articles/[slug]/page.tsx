@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation"
-import Link from "next/link"
-import { ArrowLeft, Calendar, Clock } from "lucide-react"
+import { Calendar, Clock } from "lucide-react"
 import PageTransition from "@/components/page-transition"
 import FadeIn from "@/components/fade-in"
 import { getNotionPageData } from "@/lib/notion"

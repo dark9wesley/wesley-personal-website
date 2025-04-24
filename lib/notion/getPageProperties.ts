@@ -124,7 +124,8 @@ function mapProperties(properties: Record<string, any>) {
     [BLOG.NOTION_PROPERTY_NAME.type_page]: 'Page',
     [BLOG.NOTION_PROPERTY_NAME.type_notice]: 'Notice',
     [BLOG.NOTION_PROPERTY_NAME.type_menu]: 'Menu',
-    [BLOG.NOTION_PROPERTY_NAME.type_sub_menu]: 'SubMenu'
+    [BLOG.NOTION_PROPERTY_NAME.type_sub_menu]: 'SubMenu',
+    [BLOG.NOTION_PROPERTY_NAME.type_photo]: 'Photo'
   }
 
   const statusMap = {
