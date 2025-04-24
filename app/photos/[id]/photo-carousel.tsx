@@ -23,7 +23,7 @@ export default function PhotoCarousel({
   return (
     <div className="fixed inset-0 flex items-center justify-center">
       <button
-        className="absolute inset-0 z-30 cursor-default backdrop-blur-md"
+        className="absolute inset-0 z-30 cursor-default backdrop-blur-sm"
         onClick={closeModal}
       >
       </button>
@@ -31,7 +31,6 @@ export default function PhotoCarousel({
         index={Number(photo.id)}
         currentPhoto={photo}
         closeModal={closeModal}
-        navigation={false}
       />
     </div>
   );

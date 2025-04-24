@@ -10,14 +10,12 @@ interface SharedModalProps {
   index: number;
   currentPhoto?: Photo;
   closeModal: () => void;
-  navigation: boolean;
   direction?: number;
 }
 
 export default function SharedModal({
   index,
   closeModal,
-  navigation,
   currentPhoto,
   direction,
 }: SharedModalProps) {
@@ -65,10 +63,10 @@ export default function SharedModal({
               >
                 <Image
                   src={currentImage?.pageCover ?? ''}
-                  width={navigation ? 1280 : 1920}
-                  height={navigation ? 853 : 1280}
+                  width={1920}
+                  height={1280}
                   priority
-                  alt="Next.js Conf image"
+                  alt={currentImage?.title ?? ''}
                   onLoad={() => setLoaded(true)}
                 />
               </motion.div>
