@@ -2,6 +2,9 @@ import { getNotionPageData } from "@/lib/notion"
 import Image from "next/image";
 import Link from "next/link";
 
+// 设置页面每半小时重新验证一次
+export const revalidate = 1800 // 3600秒 = 1小时
+
 export default async function PhotosPage() {
   const pageData = await getNotionPageData();
   const photos = pageData?.allPages?.filter((item) => item.type === 'Photo' && item.status === 'Published') || [];

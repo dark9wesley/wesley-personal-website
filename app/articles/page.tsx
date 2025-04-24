@@ -24,7 +24,7 @@ const formatDate = (dateString: string) => {
   return dayjs(dateString).format('MM-DD')
 }
 
-// 设置页面每小时重新验证一次
+// 设置页面每半小时重新验证一次
 export const revalidate = 1800 // 3600秒 = 1小时
 
 export default async function ArticlesPage() {
