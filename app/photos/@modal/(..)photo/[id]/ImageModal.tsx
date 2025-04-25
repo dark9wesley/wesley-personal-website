@@ -8,60 +8,56 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function ImageModal() {
-  const { selectedPhoto } = usePhotoStore()
+  const { selectedPhoto } = usePhotoStore();
+  const router = useRouter();
 
-  if (!selectedPhoto) {
-    return null;
-  }
-  const router = useRouter()
-  const back = () => {
-    router.back()
-  }
+  if (!selectedPhoto) return null;
+
+  const back = () => router.back();
 
   useEffect(() => {
-    // 禁止背景滚动
-    document.body.style.overflow = 'hidden'
-    
-    return () => {
-      // 恢复背景滚动
-      document.body.style.overflow = 'auto'
-    }
-  }, [])
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = 'auto' };
+  }, []);
 
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-        className="fixed top-0 left-0 !my-0 w-screen h-screen backdrop-blur-sm overflow-hidden z-50"
+        key="backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="fixed !my-0 inset-0 z-50 backdrop-blur-sm bg-black/40"
       >
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="absolute top-4 left-4 z-10"
-        >
-          <X className="h-5 w-5 cursor-pointer hover:opacity-80" onClick={back} />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          key="modal"
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 30, scale: 0.98 }}
+          transition={{
+            duration: 0.4,
+            ease: [0.25, 0.1, 0.25, 1] // cubic bezier
+          }}
           className="relative w-full h-full flex items-center justify-center"
         >
           <Image
             src={selectedPhoto.pageCover}
+            alt={selectedPhoto.title}
             fill
             priority
-            alt={selectedPhoto.title}
             placeholder="blur"
             blurDataURL={selectedPhoto.blurDataURL}
-            className="object-contain"
+            className="object-contain rounded-md shadow-2xl"
           />
+          <button
+            onClick={back}
+            className="absolute top-4 left-4 z-10 text-white hover:opacity-80 transition"
+          >
+            <X className="w-6 h-6" />
+          </button>
         </motion.div>
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }
