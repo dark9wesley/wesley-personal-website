@@ -51,6 +51,8 @@ export default function ImageModal({ photo }: {photo: Photo}) {
             fill
             priority
             alt={photo.title}
+            placeholder="blur"
+            blurDataURL={photo.blurDataURL}
             className="object-contain"
           />
         </motion.div>

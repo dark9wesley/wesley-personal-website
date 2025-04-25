@@ -7,6 +7,7 @@ import FadeIn from "@/components/fade-in";
 import PageTransition from "@/components/page-transition";
 import AnimatedCD from "@/components/animated-cd";
 import { Photo } from "@/types";
+import { getBlurredPhotoList } from "@/lib/getBlurredPhotoList";
 
 // 生成静态路径
 export async function generateStaticParams() {
@@ -21,18 +22,20 @@ export async function generateStaticParams() {
 export async function getPhotoById(id: string): Promise<Photo | null> {
   const pageData = await getNotionPageData();
   // 在列表内查找图片
-  const photo = pageData?.allPages?.find(p => {
+  const rowPhoto = pageData?.allPages?.find(p => {
     return (
       p.type.indexOf('Menu') < 0 &&
       (p.id === id || p.id === idToUuid(id))
     )
   }) as Photo | undefined;
 
-  if (!photo) {
+  if (!rowPhoto) {
     return null;
   }
 
-  return photo;
+  const photo = await getBlurredPhotoList([rowPhoto])
+
+  return photo[0];
 }
 
 
@@ -69,6 +72,8 @@ export default async function PhotoPage({ params }: { params: Promise<{ id: stri
               fill
               priority
               alt={photo?.title ?? ''}
+              placeholder="blur"
+              blurDataURL={photo?.blurDataURL ?? ''}
               className="pointer-events-none md:max-w-[80vw] mx-auto object-contain"
             />
           </FadeIn>
