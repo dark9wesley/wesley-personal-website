@@ -5,12 +5,23 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function ImageModal({ photo }: {photo: Photo}) {
   const router = useRouter()
   const back = () => {
     router.back()
   }
+
+  useEffect(() => {
+    // 禁止背景滚动
+    document.body.style.overflow = 'hidden'
+    
+    return () => {
+      // 恢复背景滚动
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
 
   return (
     <AnimatePresence>
