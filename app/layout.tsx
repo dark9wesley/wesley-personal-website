@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import ArtisticBackground from "@/components/artistic-background"
+import ProgressProvider from "@/components/progress-provider"
 
 import 'react-notion-x/src/styles.css'
 
@@ -31,7 +32,9 @@ export default function RootLayout({
           <ArtisticBackground />
           <div className="flex min-h-screen flex-col max-w-3xl mx-auto px-4">
             <Navbar />
-            <main className="flex-1 py-10">{children}</main>
+            <ProgressProvider>
+              <main className="flex-1 py-10">{children}</main>
+            </ProgressProvider>
             <Footer />
           </div>
         </ThemeProvider>
