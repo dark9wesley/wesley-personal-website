@@ -1,33 +1,12 @@
 import Head from "next/head";
 import { notFound } from "next/navigation"
 import { getNotionPageData } from "@/lib/notion";
-import { ExtendedRecordMap } from "notion-types";
 import { idToUuid } from "notion-utils";
 import Image from "next/image";
 import FadeIn from "@/components/fade-in";
 import PageTransition from "@/components/page-transition";
 import AnimatedCD from "@/components/animated-cd";
-
-// 定义照片类型
-export interface Photo {
-  id: string
-  title: string
-  slug: string
-  date?: {
-    start_date: string
-  }
-  publishDay?: string
-  readTime?: string
-  password?: string
-  blockMap: ExtendedRecordMap
-  content?: string[]
-  toc?: any[]
-  pageCover: string
-  relatedArticles?: Array<{
-    slug: string
-    title: string
-  }>
-}
+import { Photo } from "@/types";
 
 // 生成静态路径
 export async function generateStaticParams() {

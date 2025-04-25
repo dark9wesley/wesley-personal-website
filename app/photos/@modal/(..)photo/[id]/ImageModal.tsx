@@ -1,6 +1,6 @@
 'use client'
 
-import { Photo } from "@/app/photo/[id]/page";
+import { Photo } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";

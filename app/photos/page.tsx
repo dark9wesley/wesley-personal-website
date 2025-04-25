@@ -1,13 +1,17 @@
+import { getBlurredPhotoList } from "@/lib/getBlurredPhotoList";
 import { getNotionPageData } from "@/lib/notion"
 import Image from "next/image";
-import Link from "next/link";
+  import Link from "next/link";
+import { Photo } from "@/types";
 
 // 设置页面每半小时重新验证一次
 export const revalidate = 1800 // 3600秒 = 1小时
 
 export default async function PhotosPage() {
   const pageData = await getNotionPageData();
-  const photos = pageData?.allPages?.filter((item) => item.type === 'Photo' && item.status === 'Published') || [];
+  const rawPhotos = pageData?.allPages?.filter((item) => item.type === 'Photo' && item.status === 'Published') || [];
+  
+  const photos = await getBlurredPhotoList(rawPhotos as Photo[]);
 
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
@@ -24,7 +28,9 @@ export default async function PhotosPage() {
                 alt={photo.title}
                 className="transform transition will-change-auto object-cover"
                 style={{ transform: "translate3d(0, 0, 0)" }}
-                src={photo.pageCoverThumbnail}
+                src={photo.pageCover}
+                placeholder="blur"
+                blurDataURL={photo.blurDataURL}
                 fill
               />
             </div>
