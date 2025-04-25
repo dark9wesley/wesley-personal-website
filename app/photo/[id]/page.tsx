@@ -4,10 +4,10 @@ import { getNotionPageData } from "@/lib/notion";
 import { idToUuid } from "notion-utils";
 import Image from "next/image";
 import FadeIn from "@/components/fade-in";
-import PageTransition from "@/components/page-transition";
-import AnimatedCD from "@/components/animated-cd";
 import { Photo } from "@/types";
 import { getBlurredPhotoList } from "@/lib/getBlurredPhotoList";
+import { X } from "lucide-react";
+import Link from "next/link";
 
 // 生成静态路径
 export async function generateStaticParams() {
@@ -55,17 +55,14 @@ export default async function PhotoPage({ params }: { params: Promise<{ id: stri
   }
 
   return (
-    <PageTransition>
+    <div>
       <Head>
         <title>Wesley's Photo {photo.title}</title>
         <meta property="og:image" content={photo.pageCover} />
         <meta name="twitter:image" content={photo.pageCover} />
       </Head>
       <main className="mx-auto max-w-[1960px] p-4">
-        <div className="fixed top-0 left-0 w-screen h-screen backdrop-blur-sm">
-          <div className="absolute -top-4 left-4 z-10">
-            <AnimatedCD href="/photos" />
-          </div>
+        <div className="fixed top-0 left-0 w-screen h-screen backdrop-blur-sm bg-black/40">
           <FadeIn>
             <Image
               src={photo?.pageCover ?? ''}
@@ -76,9 +73,15 @@ export default async function PhotoPage({ params }: { params: Promise<{ id: stri
               blurDataURL={photo?.blurDataURL ?? ''}
               className="pointer-events-none md:max-w-[80vw] mx-auto object-contain"
             />
+            <Link
+              href="/photos"
+              className="absolute top-4 left-4 z-10 text-white hover:opacity-80 transition"
+            >
+              <X className="w-6 h-6" />
+            </Link>
           </FadeIn>
         </div>
       </main>
-    </PageTransition>
+    </div>
   );
 };

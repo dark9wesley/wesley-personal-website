@@ -28,7 +28,7 @@ export default function ImageModal() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="fixed !my-0 inset-0 z-50 backdrop-blur-sm bg-black/40"
+        className="fixed !my-0 top-0 left-0 w-screen h-screen backdrop-blur-sm bg-black/40"
       >
         <motion.div
           key="modal"
@@ -39,16 +39,14 @@ export default function ImageModal() {
             duration: 0.4,
             ease: [0.25, 0.1, 0.25, 1] // cubic bezier
           }}
-          className="relative w-full h-full flex items-center justify-center"
+          className="relative w-full h-full"
         >
           <Image
             src={selectedPhoto.pageCover}
             alt={selectedPhoto.title}
             fill
             priority
-            placeholder="blur"
-            blurDataURL={selectedPhoto.blurDataURL}
-            className="object-contain rounded-md shadow-2xl"
+            className="object-contain rounded-md mx-auto md:max-w-[80vw]"
           />
           <button
             onClick={back}
