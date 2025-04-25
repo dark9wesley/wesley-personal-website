@@ -1,13 +1,18 @@
 'use client'
 
-import { Photo } from "@/types";
+import { usePhotoStore } from "@/hooks/use-photoStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function ImageModal({ photo }: {photo: Photo}) {
+export default function ImageModal() {
+  const { selectedPhoto } = usePhotoStore()
+
+  if (!selectedPhoto) {
+    return null;
+  }
   const router = useRouter()
   const back = () => {
     router.back()
@@ -47,12 +52,12 @@ export default function ImageModal({ photo }: {photo: Photo}) {
           className="relative w-full h-full flex items-center justify-center"
         >
           <Image
-            src={photo.pageCover}
+            src={selectedPhoto.pageCover}
             fill
             priority
-            alt={photo.title}
+            alt={selectedPhoto.title}
             placeholder="blur"
-            blurDataURL={photo.blurDataURL}
+            blurDataURL={selectedPhoto.blurDataURL}
             className="object-contain"
           />
         </motion.div>

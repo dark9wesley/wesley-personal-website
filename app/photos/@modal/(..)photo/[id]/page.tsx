@@ -1,18 +1,8 @@
-import { getPhotoById } from "@/app/photo/[id]/page";
 import ImageModal from "./ImageModal";
-import { getBlurredPhotoList } from "@/lib/getBlurredPhotoList";
+import { usePhotoStore } from "@/hooks/use-photoStore";
 
-export default async function PhotoModal({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const rowPhoto = await getPhotoById(id);
-
-  if (!rowPhoto) {
-    return null;
-  }
-
-  const photo = await getBlurredPhotoList([rowPhoto])
-
+export default async function PhotoModal() {
   return (
-    <ImageModal photo={photo[0]} />
+    <ImageModal />
   );
 }
