@@ -88,10 +88,9 @@ export default async function PhotoPage({ params }: { params: Promise<{ id: stri
             <Image
               src={photo?.pageCover ?? ''}
               fill
-              objectFit="contain"
               priority
               alt={photo?.title ?? ''}
-              className="pointer-events-none md:max-w-[80vw] mx-auto"
+              className="pointer-events-none md:max-w-[80vw] mx-auto object-contain"
             />
           </FadeIn>
         </div>

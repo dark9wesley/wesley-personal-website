@@ -22,11 +22,10 @@ export default async function PhotosPage() {
             <div className="absolute top-0 left-0 w-full h-full">
               <Image
                 alt={photo.title}
-                className="transform transition will-change-auto"
+                className="transform transition will-change-auto object-cover"
                 style={{ transform: "translate3d(0, 0, 0)" }}
                 src={photo.pageCoverThumbnail}
                 fill
-                objectFit="cover"
               />
             </div>
           </div>

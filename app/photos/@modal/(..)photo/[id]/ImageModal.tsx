@@ -38,9 +38,9 @@ export default function ImageModal({ photo }: {photo: Photo}) {
           <Image
             src={photo.pageCover}
             fill
-            style={{ objectFit: "contain" }}
             priority
             alt={photo.title}
+            className="object-contain"
           />
         </motion.div>
       </motion.div>
