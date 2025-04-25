@@ -39,7 +39,7 @@ export async function generateStaticParams() {
 }
 
 // 获取图片数据
-async function getPhotoById(id: string): Promise<Photo | null> {
+export async function getPhotoById(id: string): Promise<Photo | null> {
   const pageData = await getNotionPageData();
   // 在列表内查找图片
   const photo = pageData?.allPages?.find(p => {
@@ -91,7 +91,7 @@ export default async function PhotoPage({ params }: { params: Promise<{ id: stri
               objectFit="contain"
               priority
               alt={photo?.title ?? ''}
-              className="pointer-events-none"
+              className="pointer-events-none md:max-w-[80vw] mx-auto"
             />
           </FadeIn>
         </div>

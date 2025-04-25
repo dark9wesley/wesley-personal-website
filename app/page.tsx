@@ -28,29 +28,29 @@ export default function Home() {
 
         <FadeIn delay={0.4}>
           <section className="space-y-4">
-            <p>
+            <div>
               我正在专注于构建自己的产品，将创意转化为现实是我的热情所在。我热衷于开发能够提高自己和他人工作效率的工具，享受创造的过程。你可以在
               <AnimatedLink href="/projects" className="text-foreground underline underline-offset-4">
                 这里查看我的项目列表
               </AnimatedLink>
               。
-            </p>
+            </div>
 
-            <p>
+            <div>
               我会在
               <AnimatedLink href="/articles" className="text-foreground underline underline-offset-4">
                 文稿
               </AnimatedLink>
               分享关于开源、编程和产品开发的心得。
-            </p>
+            </div>
 
-            <p>
+            <div>
               除了编程，我还喜欢摄影和旅行。我会在
               <AnimatedLink href="/photos" className="text-foreground underline underline-offset-4">
                 这个页面
               </AnimatedLink>
               分享一些照片。我也喜欢动漫、电影和剧集。
-            </p>
+            </div>
           </section>
         </FadeIn>
 
