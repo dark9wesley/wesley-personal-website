@@ -3,7 +3,7 @@ import { getNotionPageData } from "@/lib/notion"
 import { Photo } from "@/types";
 import PhotoItem from "./PhotoItem"
 
-export const revalidate = 1800;
+export const revalidate = 300;
 
 export default async function PhotosPage() {
   const pageData = await getNotionPageData();
