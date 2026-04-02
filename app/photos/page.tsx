@@ -1,13 +1,10 @@
 import { getBlurredPhotoList } from "@/lib/getBlurredPhotoList";
-import { getNotionPageData } from "@/lib/notion"
+import { getPhotos } from "@/lib/cms"
 import { Photo } from "@/types";
 import PhotoItem from "./PhotoItem"
 
-export const revalidate = 300;
-
 export default async function PhotosPage() {
-  const pageData = await getNotionPageData();
-  const rawPhotos = pageData?.allPages?.filter((item) => item.type === 'Photo' && item.status === 'Published') || [];
+  const rawPhotos = await getPhotos()
   const photos = await getBlurredPhotoList(rawPhotos as Photo[]);
 
   return (

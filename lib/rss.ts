@@ -1,9 +1,9 @@
-import { getNotionPageData } from "./notion";
+import { getPosts } from "./cms";
+import type { CmsPostPreview } from "./cms";
 
 // RSS生成函数
 export async function generateRSS() {
-  const pageData = await getNotionPageData();
-  const articles = pageData?.allPages?.filter((item) => item.type === 'Post' && item.status === 'Published') || [];
+  const articles = await getPosts()
 
   // 生成RSS XML
   const site_url = "https://wespeng.me"
@@ -19,7 +19,7 @@ export async function generateRSS() {
   <atom:link href="${site_url}/rss.xml" rel="self" type="application/rss+xml"/>
   ${articles
     .map(
-      (article) => `
+      (article: CmsPostPreview) => `
   <item>
     <title><![CDATA[${article.title}]]></title>
     <link>${site_url}/articles/${article.slug}</link>

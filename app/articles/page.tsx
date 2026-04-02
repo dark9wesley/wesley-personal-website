@@ -2,35 +2,16 @@ import Link from "next/link"
 import PageTransition from "@/components/page-transition"
 import FadeIn from "@/components/fade-in"
 import StaggeredFadeIn from "@/components/staggered-fade-in"
-import { getNotionPageData } from "@/lib/notion"
+import { buildArticlesByYear, getPosts } from "@/lib/cms"
 import dayjs from 'dayjs'
-
-// 按年份分组文章
-const groupByYear = (articles: Record<string, any>[]) => {
-  const grouped: Record<string, typeof articles> = {}
-
-  articles.forEach((article: Record<string, any>) => {
-    const year = new Date(article.publishDate).getFullYear().toString()
-    if (!grouped[year]) {
-      grouped[year] = []
-    }
-    grouped[year].push(article)
-  })
-
-  return grouped
-}
 
 const formatDate = (dateString: string) => {
   return dayjs(dateString).format('MM-DD')
 }
 
-// 设置页面每半小时重新验证一次
-export const revalidate = 1800 // 3600秒 = 1小时
-
 export default async function ArticlesPage() {
-  const pageData = await getNotionPageData();
-  const articles = pageData?.allPages?.filter((item) => item.type === 'Post' && item.status === 'Published') || [];
-  const groupedArticles = groupByYear(articles)
+  const articles = await getPosts()
+  const groupedArticles = buildArticlesByYear(articles)
   const years = Object.keys(groupedArticles).sort((a, b) => Number.parseInt(b) - Number.parseInt(a))
 
   return (

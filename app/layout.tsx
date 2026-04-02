@@ -8,8 +8,6 @@ import Footer from "@/components/footer"
 import ArtisticBackground from "@/components/artistic-background"
 import ProgressProvider from "@/components/progress-provider"
 
-import 'react-notion-x/src/styles.css'
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",

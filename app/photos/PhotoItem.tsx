@@ -11,7 +11,7 @@ export default function PhotoItem({ photo }: { photo: Photo }) {
 
   const handleClick = () => {
     setSelectedPhoto(photo)
-    router.push(`/photo/${photo.id}`, { scroll: false })
+    router.push(`/photo/${photo.slug}`, { scroll: false })
   }
 
   return (

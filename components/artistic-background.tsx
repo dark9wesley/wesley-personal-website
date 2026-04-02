@@ -18,7 +18,7 @@ export default function ArtisticBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const [stopped, setStopped] = useState(false)
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number | null>(null)
   const stepsRef = useRef<BranchStep[]>([])
   const prevStepsRef = useRef<BranchStep[]>([])
   const lastTimeRef = useRef(performance.now())
