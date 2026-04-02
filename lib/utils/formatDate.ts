@@ -1,12 +1,10 @@
-import BLOG from '@/blog.config'
-
 /**
  * 格式化日期
  * @param date
  * @param local
  * @returns {string}
  */
-export function formatDate(date: string, local = BLOG.LANG) {
+export function formatDate(date: string, local) {
   if (!date || !local) return date || ''
   const d = new Date(date)
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' }
