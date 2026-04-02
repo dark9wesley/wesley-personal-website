@@ -4,7 +4,7 @@
  * @param local
  * @returns {string}
  */
-export function formatDate(date: string, local) {
+export function formatDate(date: string, local: string) {
   if (!date || !local) return date || ''
   const d = new Date(date)
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' }
